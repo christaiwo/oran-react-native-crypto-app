@@ -6,7 +6,9 @@ module.exports = {
     "./layouts/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      primary: "#339AF0",
+    },
   },
   plugins: [],
 };
