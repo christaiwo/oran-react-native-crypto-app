@@ -5,32 +5,28 @@
     "scheme": "oran",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.jpg",
+    "icon": "./assets/icon_logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.jpg",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.jpg",
+        "foregroundImage": "./assets/icon_logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.christaiwo.oran"
     },
     "web": {
-      "favicon": "./assets/logo.jpg"
+      "favicon": "./assets/icon_logo.png"
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
