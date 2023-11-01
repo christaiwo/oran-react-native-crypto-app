@@ -14,13 +14,15 @@ import {
   Feather,
   Ionicons,
   AntDesign,
+  Fontisto,
+  Octicons,
 } from "@expo/vector-icons";
 import StatCard from "@/StatCard";
 
 const Page = () => {
   return (
-    <SafeAreaView className="w-full h-full ">
-      <ScrollView className="h-[90%] w-full flex flex-col space-y-3 bg-white px-2">
+    <SafeAreaView className="w-full h-full  bg-white">
+      <ScrollView className="h-[90%] w-full flex flex-col space-y-3 px-2">
         <View className="w-full h-14 flex flex-row items-center justify-between">
           <TouchableOpacity>
             <Image
@@ -42,8 +44,11 @@ const Page = () => {
             <TouchableOpacity>
               <MaterialIcons name="support-agent" size={25} color={"black"} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity className="relative">
               <Feather name="bell" size={25} color={"black"} />
+              <View className="absolute -top-3 left-2 rounded-full p-[2px] bg-primary">
+                <Text className="text-xs text-white">28</Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -61,7 +66,7 @@ const Page = () => {
           </View>
           <View className="w-[30%] h-full">
             <Image
-              source={require("../assets/bg.png")}
+              source={require("../assets/background.png")}
               className="w-full h-full object-contain"
             />
           </View>
@@ -96,6 +101,9 @@ const Page = () => {
                   source={require("../assets/icon/usdt.png")}
                   className="w-full h-full"
                 />
+                <View className="absolute -top-3 -right-4 rounded-l-md rounded-r-lg p-[2px] bg-primary">
+                  <Text className="text-xs text-white">30%</Text>
+                </View>
               </View>
               <Text className="">Oran Earn</Text>
             </View>
@@ -109,11 +117,14 @@ const Page = () => {
               <Text className="">NFT</Text>
             </View>
             <View className="w-[25%] flex flex-col items-center ">
-              <View className="w-10 h-10 flex items-center justify-center rounded-full">
+              <View className="w-10 h-10 flex items-center justify-center rounded-full relative">
                 <Image
                   source={require("../assets/icon/card.png")}
                   className="w-full h-full"
                 />
+                <View className="absolute -top-3 -right-4 rounded-l-md rounded-r-lg py-[3px] px-1 bg-primary">
+                  <Text className="text-xs text-white">new</Text>
+                </View>
               </View>
               <Text className="">Card</Text>
             </View>
@@ -136,10 +147,7 @@ const Page = () => {
             </View>
             <View className="w-[25%] flex flex-col items-center ">
               <View className="w-10 h-10 flex items-center justify-center rounded-full">
-                <Image
-                  source={require("../assets/icon/nft.png")}
-                  className="w-full h-full"
-                />
+                <Octicons name="copy" color={"#339AF0"} size={25} />
               </View>
               <Text className="">Copy Trading</Text>
             </View>
@@ -163,8 +171,58 @@ const Page = () => {
             </View>
           </View>
         </View>
+        <View className="w-full h-28 bg-[#f0f0f0] rounded-md flex flex-row items-center px-2 py-2">
+          <View className="w-[30%] h-full">
+            <Image
+              source={require("../assets/award.png")}
+              className="w-full h-full object-contain"
+            />
+          </View>
+          <View className="w-[70%] relative">
+            <Text className="text-[16px] font-medium flex flex-row items-center justify-center leading-7">
+              Refer a friend climb Leaderboards and share 45,000 USDT
+            </Text>
+            <View className="bg-primary py-1 px-3 rounded-full absolute top-7 right-10">
+              <AntDesign name="arrowright" size={15} color={"white"} />
+            </View>
+          </View>
+        </View>
       </ScrollView>
-      <View className="w-full h-[8%] bg-red-400"></View>
+      <View className="w-full h-[8%] flex flex-row items-center justify-between px-2">
+        <TouchableOpacity className="flex flex-col items-center justify-center">
+          <View className="w-8 h-8 bg-primary/70 rounded-full flex items-center justify-center">
+            <Text className="text-white">CC</Text>
+          </View>
+          <Text className="text-primary/70">Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="flex flex-col items-center justify-center">
+          <View className="w-8 h-8  rounded-full flex items-center justify-center">
+            <Fontisto name="equalizer" size={20} />
+          </View>
+          <Text>Markets</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="flex flex-col items-center justify-center">
+          <View className="w-8 h-8  rounded-full flex items-center justify-center">
+            <AntDesign name="codesquareo" size={20} />
+          </View>
+          <Text>Derivatives</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="flex flex-col items-center justify-center">
+          <View className="w-8 h-8  rounded-full flex items-center justify-center">
+            <MaterialCommunityIcons
+              name="flask-round-bottom-empty-outline"
+              size={20}
+            />
+          </View>
+          <Text>Trade</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="flex flex-col items-center justify-center">
+          <View className="w-8 h-8  rounded-full flex items-center justify-center">
+            <AntDesign name="creditcard" size={20} />
+          </View>
+          <Text>Assets</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
