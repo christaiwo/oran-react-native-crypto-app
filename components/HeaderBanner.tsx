@@ -34,7 +34,7 @@ const HeaderBanner = ({ handleClick }: HeaderBannerProps) => {
             onPress={handleClick}
             className="w-[40%] h-fit bg-darkColor rounded-full px-4 py-2 flex items-center justify-center"
           >
-            <Text className="text-white font-semibold">Log Up</Text>
+            <Text className="text-white font-semibold">Log In</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
