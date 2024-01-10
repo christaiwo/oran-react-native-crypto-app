@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import {
   MaterialCommunityIcons,
   AntDesign,
@@ -20,10 +20,11 @@ const BottomBar = ({ handleClick }: BottomBarProps) => {
         onPress={handleClick}
         className="flex flex-col items-center justify-center"
       >
-        <View className="w-8 h-8 bg-primary/70 rounded-full flex items-center justify-center">
-          <Text className="text-[#808080]">CC</Text>
+        <View className="w-8 h-8  rounded-full flex items-center justify-center">
+          {/* <Feather name="bar-chart" size={20} color={"white"} /> */}
+          <Image source={require("../assets/kucoin.png")} className="w-5 h-5" />
         </View>
-        <Text className="text-primary/70">Home</Text>
+        <Text className="text-white">Markets</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={handleClick}
