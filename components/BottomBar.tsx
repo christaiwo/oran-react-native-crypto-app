@@ -1,9 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import {
   MaterialCommunityIcons,
-  AntDesign,
-  Fontisto,
-  FontAwesome5,
   Octicons,
   Ionicons,
   Feather,
@@ -21,8 +18,7 @@ const BottomBar = ({ handleClick }: BottomBarProps) => {
         className="flex flex-col items-center justify-center"
       >
         <View className="w-8 h-8  rounded-full flex items-center justify-center">
-          {/* <Feather name="bar-chart" size={20} color={"white"} /> */}
-          <Image source={require("../assets/kucoin.png")} className="w-5 h-5" />
+          <Feather name="home" size={20} color={"white"} />
         </View>
         <Text className="text-white">Markets</Text>
       </TouchableOpacity>

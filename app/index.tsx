@@ -42,7 +42,7 @@ const Page = () => {
 
   return (
     <SafeAreaView className="w-full h-full  bg-[#121212]">
-      <ScrollView className="h-[90%] w-full flex flex-col space-y-3 px-2">
+      <ScrollView className="h-[90%] w-full flex flex-col space-y-5 px-2">
         <View>
           <TopBar handleClick={handleClick} />
         </View>
@@ -62,30 +62,16 @@ const Page = () => {
           <StatCard />
         </View>
 
-        <TouchableOpacity onPress={handleClick} className="w-full ">
+        {/* <TouchableOpacity onPress={handleClick} className="w-full ">
           <Image
             source={require("../assets/stat-2.png")}
             className="w-full h-56"
             // resizeMethod="contain"
             resizeMode="contain"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </ScrollView>
       <BottomBar handleClick={handleClick} />
-      {/* 
-      <View
-        id="modal"
-        className="absolute z-50 bg-white/20 h-full w-full flex items-center justify-center"
-      >
-        <View className="w-[50%] h-[20%] bg-white rounded-lg flex flex-col items-center justify-evenly space-x-3 p-2">
-          <View className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
-            <Ionicons name="alert" color={"white"} size={40} />
-          </View>
-          <Text className="text-sm text-center font-semibold text-gray-400">
-            Upgrade the APk source to operate
-          </Text>
-        </View>
-      </View> */}
 
       <Modal
         animationType="slide"
