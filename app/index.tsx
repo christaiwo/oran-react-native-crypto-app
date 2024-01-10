@@ -19,43 +19,16 @@ import {
 } from "@expo/vector-icons";
 import StatCard from "@/StatCard";
 import BottomBar from "@/BottomBar";
+import TopBar from "@/TopBar";
 
 const Page = () => {
   const handleClick = () => {
     alert("Upgrade the APk source to operate");
   };
   return (
-    <SafeAreaView className="w-full h-full  bg-white">
+    <SafeAreaView className="w-full h-full  bg-[#121212]">
       <ScrollView className="h-[90%] w-full flex flex-col space-y-3 px-2">
-        <View className="w-full h-14 flex flex-row items-center justify-between">
-          <TouchableOpacity onPress={handleClick}>
-            <Image
-              source={require("../assets/icon/avatar.png")}
-              className="w-10 h-12"
-            />
-          </TouchableOpacity>
-          <View className="w-[50%] h-10 bg-gray-300/40 rounded-full">
-            <TextInput className="w-full h-full bg-inherit rounded-full px-2" />
-          </View>
-          <View className="w-[30%] flex flex-row justify-between items-center">
-            <TouchableOpacity onPress={handleClick}>
-              <MaterialCommunityIcons
-                name="line-scan"
-                size={25}
-                color={"black"}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleClick}>
-              <MaterialIcons name="support-agent" size={25} color={"black"} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleClick} className="relative">
-              <Feather name="bell" size={25} color={"black"} />
-              <View className="absolute -top-3 left-2 rounded-full p-[2px] bg-primary">
-                <Text className="text-xs text-white">28</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <TopBar handleClick={handleClick} />
         <View className="w-full h-28 bg-gray-300/40 rounded-md flex flex-row items-center px-2 py-2">
           <View className="w-[70%]">
             <Text className="text-xl font-bold">

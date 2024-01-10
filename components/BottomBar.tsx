@@ -3,6 +3,10 @@ import {
   MaterialCommunityIcons,
   AntDesign,
   Fontisto,
+  FontAwesome5,
+  Octicons,
+  Ionicons,
+  Feather,
 } from "@expo/vector-icons";
 
 interface BottomBarProps {
@@ -11,13 +15,13 @@ interface BottomBarProps {
 
 const BottomBar = ({ handleClick }: BottomBarProps) => {
   return (
-    <View className="w-full h-[8%] flex flex-row items-center justify-between px-2">
+    <View className="w-full h-[8%] bg-[#1E1E1E] flex flex-row items-center justify-between px-2">
       <TouchableOpacity
         onPress={handleClick}
         className="flex flex-col items-center justify-center"
       >
         <View className="w-8 h-8 bg-primary/70 rounded-full flex items-center justify-center">
-          <Text className="text-white">CC</Text>
+          <Text className="text-[#808080]">CC</Text>
         </View>
         <Text className="text-primary/70">Home</Text>
       </TouchableOpacity>
@@ -26,18 +30,18 @@ const BottomBar = ({ handleClick }: BottomBarProps) => {
         className="flex flex-col items-center justify-center"
       >
         <View className="w-8 h-8  rounded-full flex items-center justify-center">
-          <Fontisto name="equalizer" size={20} />
+          <Feather name="bar-chart" size={20} color={"#808080"} />
         </View>
-        <Text>Markets</Text>
+        <Text className="text-[#808080]">Markets</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={handleClick}
         className="flex flex-col items-center justify-center"
       >
         <View className="w-8 h-8  rounded-full flex items-center justify-center">
-          <AntDesign name="codesquareo" size={20} />
+          <Octicons name="arrow-switch" size={20} color={"#808080"} />
         </View>
-        <Text>Derivatives</Text>
+        <Text className="text-[#808080]">Trade</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={handleClick}
@@ -45,20 +49,22 @@ const BottomBar = ({ handleClick }: BottomBarProps) => {
       >
         <View className="w-8 h-8  rounded-full flex items-center justify-center">
           <MaterialCommunityIcons
-            name="flask-round-bottom-empty-outline"
+            name="chart-line-variant"
             size={20}
+            color={"#808080"}
           />
         </View>
-        <Text>Trade</Text>
+        <Text className="text-[#808080]">Fixtures</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         onPress={handleClick}
         className="flex flex-col items-center justify-center"
       >
         <View className="w-8 h-8  rounded-full flex items-center justify-center">
-          <AntDesign name="creditcard" size={20} />
+          <Ionicons name="wallet-outline" size={20} color={"#808080"} />
         </View>
-        <Text>Assets</Text>
+        <Text className="text-[#808080]">Assets</Text>
       </TouchableOpacity>
     </View>
   );
