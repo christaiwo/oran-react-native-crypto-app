@@ -5,6 +5,7 @@ import {
   FontAwesome,
   MaterialCommunityIcons,
   MaterialIcons,
+  Feather,
 } from "@expo/vector-icons";
 
 interface ActionButtonsProps {
@@ -32,11 +33,11 @@ const ActionButtons = ({ handleClick }: ActionButtonsProps) => {
           className="w-full px-2 py-2 bg-darkColor rounded-lg flex flex-row items-center justify-center space-x-2"
         >
           <MaterialCommunityIcons
-            name="tray-arrow-down"
+            name="tray-arrow-up"
             color={"white"}
             size={20}
           />
-          <Text className="text-white text-sm">Deposit</Text>
+          <Text className="text-white text-sm">Withdraw</Text>
         </TouchableOpacity>
       </View>
 
@@ -45,12 +46,8 @@ const ActionButtons = ({ handleClick }: ActionButtonsProps) => {
           onPress={handleClick}
           className="w-full px-2 py-2 bg-darkColor rounded-lg flex flex-row items-center justify-center space-x-2"
         >
-          <MaterialCommunityIcons
-            name="tray-arrow-down"
-            color={"white"}
-            size={20}
-          />
-          <Text className="text-white text-sm">Deposit</Text>
+          <Feather name="arrow-up-right" color={"white"} size={20} />
+          <Text className="text-white text-sm">Transfer</Text>
         </TouchableOpacity>
       </View>
     </View>
