@@ -5,8 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Modal,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   MaterialCommunityIcons,
@@ -18,259 +19,101 @@ import {
   Octicons,
 } from "@expo/vector-icons";
 import StatCard from "@/StatCard";
+import BottomBar from "@/BottomBar";
+import TopBar from "@/TopBar";
+import HeaderBanner from "@/HeaderBanner";
+import StatsComponent from "@/StatsComponent";
+import BuyCrypto from "@/BuyCrypto";
+import ActionButtons from "@/ActionButtons";
 
 const Page = () => {
+  const [showModal, setShowModal] = useState(false);
   const handleClick = () => {
-    alert("Upgrade the APk source to operate");
+    setShowModal(true);
   };
+
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setShowModal(false);
+    }
+  };
+
   return (
-    <SafeAreaView className="w-full h-full  bg-white">
+    <SafeAreaView className="w-full h-full  bg-[#121212]">
       <ScrollView className="h-[90%] w-full flex flex-col space-y-3 px-2">
-        <View className="w-full h-14 flex flex-row items-center justify-between">
-          <TouchableOpacity onPress={handleClick}>
-            <Image
-              source={require("../assets/icon/avatar.png")}
-              className="w-10 h-12"
-            />
-          </TouchableOpacity>
-          <View className="w-[50%] h-10 bg-gray-300/40 rounded-full">
-            <TextInput className="w-full h-full bg-inherit rounded-full px-2" />
-          </View>
-          <View className="w-[30%] flex flex-row justify-between items-center">
-            <TouchableOpacity onPress={handleClick}>
-              <MaterialCommunityIcons
-                name="line-scan"
-                size={25}
-                color={"black"}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleClick}>
-              <MaterialIcons name="support-agent" size={25} color={"black"} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleClick} className="relative">
-              <Feather name="bell" size={25} color={"black"} />
-              <View className="absolute -top-3 left-2 rounded-full p-[2px] bg-primary">
-                <Text className="text-xs text-white">28</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+        <View>
+          <TopBar handleClick={handleClick} />
         </View>
-        <View className="w-full h-28 bg-gray-300/40 rounded-md flex flex-row items-center px-2 py-2">
-          <View className="w-[70%]">
-            <Text className="text-xl font-bold">
-              Protect your 1st copy trade
-            </Text>
-            <Text className="">
-              Enjoy Up to{" "}
-              <Text className="text-[#339AF0] font-bold">
-                100 USDT Loss Coverage
-              </Text>
-            </Text>
-          </View>
-          <View className="w-[30%] h-full">
-            <Image
-              source={require("../assets/background.png")}
-              className="w-full h-full object-contain"
-            />
-          </View>
+        <View>
+          <HeaderBanner handleClick={handleClick} />
         </View>
-        <View className="flex flex-col">
-          <View className="flex flex-row items-center space-x-2">
-            <Text className="text-lg">Featured</Text>
-            <Ionicons name="reload" size={20} color={"black"} />
-          </View>
-          <View>
-            <Text className="text-xl font-semibold">Your favorites</Text>
-          </View>
-          <ScrollView horizontal={true} className="flex flex-row mt-5">
-            <StatCard />
-            <StatCard />
-            <StatCard />
-            <StatCard />
-            <StatCard />
-          </ScrollView>
+        <View>
+          <StatsComponent handleClick={handleClick} />
         </View>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="w-full h-14 border border-gray-400 rounded-lg flex items-center justify-center"
-        >
-          <View className="flex flex-row items-center space-x-2">
-            <Text className="text-lg font-semibold">Buy/Deposit</Text>
-            <AntDesign name="arrowright" size={25} />
-          </View>
+        <View>
+          <BuyCrypto handleClick={handleClick} />
+        </View>
+        <View>
+          <ActionButtons handleClick={handleClick} />
+        </View>
+        <View>
+          <StatCard />
+        </View>
+
+        <TouchableOpacity onPress={handleClick} className="w-full ">
+          <Image
+            source={require("../assets/stat-2.png")}
+            className="w-full h-56"
+            // resizeMethod="contain"
+            resizeMode="contain"
+          />
         </TouchableOpacity>
-        <View className="flex flex-col space-y-10 ">
-          <View className="w-full flex flex-row justify-between items-center mt-5">
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 border-2 border-[#339AF0] flex items-center justify-center p-1 rounded-full">
-                <Image
-                  source={require("../assets/icon/usdt.png")}
-                  className="w-full h-full"
-                />
-                <View className="absolute -top-3 -right-6 rounded-l-md rounded-r-lg py-[2px] bg-primary w-8 flex items-center justify-center">
-                  <Text className="text-xs text-white">30%</Text>
-                </View>
-              </View>
-              <Text className="">Oran Earn</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 flex items-center justify-center rounded-full">
-                <Image
-                  source={require("../assets/icon/nft.png")}
-                  className="w-full h-full"
-                />
-              </View>
-              <Text className="">NFT</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 flex items-center justify-center rounded-full relative">
-                <Image
-                  source={require("../assets/icon/card.png")}
-                  className="w-full h-full"
-                />
-                <View className="absolute -top-3 -right-6 rounded-l-md rounded-r-lg py-[2px] bg-primary w-8 flex items-center justify-center">
-                  <Text className="text-xs text-white">new</Text>
-                </View>
-              </View>
-              <Text className="">Card</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 flex items-center justify-center rounded-full">
-                <Image
-                  source={require("../assets/icon/gift.png")}
-                  className="w-full h-full"
-                />
-              </View>
-              <Text className="">Rewards Hub</Text>
-            </TouchableOpacity>
-          </View>
-          <View className="w-full flex flex-row justify-between items-center">
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 border-2 border-[#339AF0] flex items-center justify-center p-1 rounded-full">
-                <AntDesign name="user" color={"#339AF0"} size={25} />
-              </View>
-              <Text className="">Invite friends</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 flex items-center justify-center rounded-full">
-                <Octicons name="copy" color={"#339AF0"} size={25} />
-              </View>
-              <Text className="">Copy Trading</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 flex items-center justify-center rounded-full">
-                <Image
-                  source={require("../assets/icon/bot.png")}
-                  className="w-full h-full"
-                />
-              </View>
-              <Text className="">Trading Bot</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleClick}
-              className="w-[25%] flex flex-col items-center "
-            >
-              <View className="w-10 h-10 border-2 border-[#339AF0] flex items-center justify-center p-1 rounded-full">
-                <Image
-                  source={require("../assets/icon/more.png")}
-                  className="w-full h-full"
-                />
-              </View>
-              <Text className="">More</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View className="w-full h-28 bg-[#f0f0f0] rounded-md flex flex-row items-center px-2 py-2">
-          <View className="w-[30%] h-full">
-            <Image
-              source={require("../assets/award.png")}
-              className="w-full h-full object-contain"
-            />
-          </View>
-          <View className="w-[70%] relative">
-            <Text
-              className="text-[16px] font-medium flex flex-row items-center justify-center leading-7"
-              numberOfLines={2}
-            >
-              Refer a friend climb Leaderboards and share 45,000 USDT
-            </Text>
-            <View className="bg-primary py-1 px-3 rounded-full absolute top-7 -right-0">
-              <AntDesign name="arrowright" size={15} color={"white"} />
-            </View>
-          </View>
-        </View>
       </ScrollView>
-      <View className="w-full h-[8%] flex flex-row items-center justify-between px-2">
-        <TouchableOpacity
-          onPress={handleClick}
-          className="flex flex-col items-center justify-center"
-        >
-          <View className="w-8 h-8 bg-primary/70 rounded-full flex items-center justify-center">
-            <Text className="text-white">CC</Text>
+      <BottomBar handleClick={handleClick} />
+      {/* 
+      <View
+        id="modal"
+        className="absolute z-50 bg-white/20 h-full w-full flex items-center justify-center"
+      >
+        <View className="w-[50%] h-[20%] bg-white rounded-lg flex flex-col items-center justify-evenly space-x-3 p-2">
+          <View className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
+            <Ionicons name="alert" color={"white"} size={40} />
           </View>
-          <Text className="text-primary/70">Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="flex flex-col items-center justify-center"
+          <Text className="text-sm text-center font-semibold text-gray-400">
+            Upgrade the APk source to operate
+          </Text>
+        </View>
+      </View> */}
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showModal}
+        onRequestClose={() => setShowModal(false)}
+        className="absolute z-50 bg-white h-full w-full flex items-center justify-center"
+      >
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          <View className="w-8 h-8  rounded-full flex items-center justify-center">
-            <Fontisto name="equalizer" size={20} />
+          <View className="w-[50%] h-[25%] bg-white rounded-lg flex flex-col items-center justify-evenly space-y-3 p-2">
+            <View className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
+              <Ionicons name="alert" color={"white"} size={40} />
+            </View>
+            <Text className="text-sm text-center font-semibold text-gray-400">
+              Upgrade the APk source to operate
+            </Text>
+
+            <TouchableOpacity
+              onPress={() => setShowModal(false)}
+              className="w-full bg-red-500 py-2 flex items-center justify-center rounded-lg"
+            >
+              <Text className="text-white">Close</Text>
+            </TouchableOpacity>
           </View>
-          <Text>Markets</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="flex flex-col items-center justify-center"
-        >
-          <View className="w-8 h-8  rounded-full flex items-center justify-center">
-            <AntDesign name="codesquareo" size={20} />
-          </View>
-          <Text>Derivatives</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="flex flex-col items-center justify-center"
-        >
-          <View className="w-8 h-8  rounded-full flex items-center justify-center">
-            <MaterialCommunityIcons
-              name="flask-round-bottom-empty-outline"
-              size={20}
-            />
-          </View>
-          <Text>Trade</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="flex flex-col items-center justify-center"
-        >
-          <View className="w-8 h-8  rounded-full flex items-center justify-center">
-            <AntDesign name="creditcard" size={20} />
-          </View>
-          <Text>Assets</Text>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
