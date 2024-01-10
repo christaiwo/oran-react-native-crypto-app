@@ -14,10 +14,13 @@ const BuyCrypto = ({ handleClick }: BuyCryptoProps) => {
     >
       <View className="bg-darkColor w-[80%] h-20 rounded-md flex-row items-center p-2 justify-between">
         <View className="w-[25%] relative">
-          <View className="w-10 h-10 bg-green-300 rounded-full">
-            {/* <Image source={require('../assets/')} /> */}
+          <View className="w-12 h-12 rounded-full">
+            <Image
+              source={require("../assets/icon/usdt-2.png")}
+              className="w-full h-full"
+            />
           </View>
-          <View className="absolute left-4 top-4 w-10 h-10 bg-white/40 rounded-full flex items-center justify-center">
+          <View className="absolute left-4 top-4 w-10 h-10 bg-black/20 rounded-full flex items-center justify-center">
             <FontAwesome name="dollar" color={"white"} size={20} />
           </View>
         </View>

@@ -23,6 +23,7 @@ import TopBar from "@/TopBar";
 import HeaderBanner from "@/HeaderBanner";
 import StatsComponent from "@/StatsComponent";
 import BuyCrypto from "@/BuyCrypto";
+import ActionButtons from "@/ActionButtons";
 
 const Page = () => {
   const handleClick = () => {
@@ -41,10 +42,13 @@ const Page = () => {
           <StatsComponent handleClick={handleClick} />
         </View>
         <View>
-          <StatCard />
+          <BuyCrypto handleClick={handleClick} />
         </View>
         <View>
-          <BuyCrypto handleClick={handleClick} />
+          <ActionButtons handleClick={handleClick} />
+        </View>
+        <View>
+          <StatCard />
         </View>
       </ScrollView>
       <BottomBar handleClick={handleClick} />
