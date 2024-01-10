@@ -20,6 +20,7 @@ import {
 import StatCard from "@/StatCard";
 import BottomBar from "@/BottomBar";
 import TopBar from "@/TopBar";
+import HeaderBanner from "@/HeaderBanner";
 
 const Page = () => {
   const handleClick = () => {
@@ -29,50 +30,8 @@ const Page = () => {
     <SafeAreaView className="w-full h-full  bg-[#121212]">
       <ScrollView className="h-[90%] w-full flex flex-col space-y-3 px-2">
         <TopBar handleClick={handleClick} />
-        <View className="w-full h-28 bg-gray-300/40 rounded-md flex flex-row items-center px-2 py-2">
-          <View className="w-[70%]">
-            <Text className="text-xl font-bold">
-              Protect your 1st copy trade
-            </Text>
-            <Text className="">
-              Enjoy Up to{" "}
-              <Text className="text-[#339AF0] font-bold">
-                100 USDT Loss Coverage
-              </Text>
-            </Text>
-          </View>
-          <View className="w-[30%] h-full">
-            <Image
-              source={require("../assets/background.png")}
-              className="w-full h-full object-contain"
-            />
-          </View>
-        </View>
-        <View className="flex flex-col">
-          <View className="flex flex-row items-center space-x-2">
-            <Text className="text-lg">Featured</Text>
-            <Ionicons name="reload" size={20} color={"black"} />
-          </View>
-          <View>
-            <Text className="text-xl font-semibold">Your favorites</Text>
-          </View>
-          <ScrollView horizontal={true} className="flex flex-row mt-5">
-            <StatCard />
-            <StatCard />
-            <StatCard />
-            <StatCard />
-            <StatCard />
-          </ScrollView>
-        </View>
-        <TouchableOpacity
-          onPress={handleClick}
-          className="w-full h-14 border border-gray-400 rounded-lg flex items-center justify-center"
-        >
-          <View className="flex flex-row items-center space-x-2">
-            <Text className="text-lg font-semibold">Buy/Deposit</Text>
-            <AntDesign name="arrowright" size={25} />
-          </View>
-        </TouchableOpacity>
+        <HeaderBanner handleClick={handleClick} />
+
         <View className="flex flex-col space-y-10 ">
           <View className="w-full flex flex-row justify-between items-center mt-5">
             <TouchableOpacity
@@ -173,25 +132,6 @@ const Page = () => {
               </View>
               <Text className="">More</Text>
             </TouchableOpacity>
-          </View>
-        </View>
-        <View className="w-full h-28 bg-[#f0f0f0] rounded-md flex flex-row items-center px-2 py-2">
-          <View className="w-[30%] h-full">
-            <Image
-              source={require("../assets/award.png")}
-              className="w-full h-full object-contain"
-            />
-          </View>
-          <View className="w-[70%] relative">
-            <Text
-              className="text-[16px] font-medium flex flex-row items-center justify-center leading-7"
-              numberOfLines={2}
-            >
-              Refer a friend climb Leaderboards and share 45,000 USDT
-            </Text>
-            <View className="bg-primary py-1 px-3 rounded-full absolute top-7 -right-0">
-              <AntDesign name="arrowright" size={15} color={"white"} />
-            </View>
           </View>
         </View>
       </ScrollView>
