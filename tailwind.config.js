@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         primary: "#339AF0",
         darkColor: "#1E1E1E",
+        buttonColor: "#1d9774",
       },
     },
   },
