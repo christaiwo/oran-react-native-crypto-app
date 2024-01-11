@@ -26,7 +26,7 @@ const HeaderBanner = ({ handleClick }: HeaderBannerProps) => {
         <View className="w-[70%] flex flex-row space-x-2 items-center">
           <TouchableOpacity
             onPress={handleClick}
-            className="w-[40%] h-fit bg-green-300 rounded-full px-4 py-2 flex items-center justify-center"
+            className="w-[40%] h-fit bg-primary rounded-full px-4 py-2 flex items-center justify-center"
           >
             <Text className="text-white font-semibold">Sign Up</Text>
           </TouchableOpacity>
@@ -41,11 +41,11 @@ const HeaderBanner = ({ handleClick }: HeaderBannerProps) => {
           onPress={handleClick}
           className="flex flex-row space-x-2 items-center"
         >
-          <Text className="text-green-400">Rewards Hub</Text>
+          <Text className="text-primary">Rewards Hub</Text>
           <MaterialIcons
             name="keyboard-arrow-right"
             size={20}
-            color={"green"}
+            color={"#339AF0"}
           />
         </TouchableOpacity>
       </View>

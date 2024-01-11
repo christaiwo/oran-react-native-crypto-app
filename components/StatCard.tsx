@@ -18,7 +18,7 @@ const StatCard = () => {
       <View className="w-1/3 flex items-center">
         <Text className="text-sm text-gray-200">ETH/USDT</Text>
         <Text className="text-lg text-white font-bold">34,385.70</Text>
-        <Text className="text-xs text-green-600">+ 1.4%</Text>
+        <Text className="text-xs text-primary">+ 1.4%</Text>
       </View>
     </View>
   );
